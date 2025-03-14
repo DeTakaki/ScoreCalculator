@@ -10,6 +10,7 @@ final router = GoRouter(initialLocation: RoutesStrings.home, routes: [
     builder: (_, __) => const ScoreCalculatorScreen(),
     routes: [
       GoRoute(
+        name: RoutesStrings.results,
         path: RoutesStrings.results,
         builder: (_, __) => const ResultsScreen(),
       ),

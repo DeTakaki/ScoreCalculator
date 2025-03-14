@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:score_calculator/src/constants/app_colors.dart';
-import 'package:score_calculator/src/constants/app_images.dart';
 import 'package:score_calculator/src/constants/app_sizes.dart';
 import 'package:score_calculator/src/core/presentation/widgets/base_layout.dart';
 import 'package:score_calculator/src/core/presentation/widgets/calculator_card.dart';
+import 'package:score_calculator/src/core/presentation/widgets/kalshi_header.dart';
 import 'package:score_calculator/src/core/presentation/widgets/security_footer.dart';
 
 class ScoreCalculatorScreen extends StatefulWidget {
@@ -22,23 +22,7 @@ class _ScoreCalculatorScreenState extends State<ScoreCalculatorScreen> {
     return BaseLayout(
       child: Column(
         children: [
-          const Column(
-            children: [
-              SizedBox(
-                height: 150,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Image(
-                        image: AssetImage(AppImages.kalshiLogo),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          const KalshiHeader(),
           gapH48,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: Sizes.p44),

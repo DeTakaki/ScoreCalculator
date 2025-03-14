@@ -9,9 +9,11 @@ class CalculatorTextField extends StatelessWidget {
     super.key,
     required this.title,
     required this.textController,
+    required this.validator,
   });
 
   final String title;
+  final FormFieldValidator<String>? validator;
   final TextEditingController textController;
   @override
   Widget build(BuildContext context) {
@@ -30,23 +32,37 @@ class CalculatorTextField extends StatelessWidget {
           onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
           controller: textController,
           keyboardType: TextInputType.number,
+          validator: validator,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          textInputAction: TextInputAction.next,
+          // initialValue: '0,00',
           decoration: const InputDecoration(
             hintText: '0,00',
+            hintStyle: TextStyle(color: AppColors.lighterTextColor),
+            errorBorder:
+                OutlineInputBorder(borderSide: BorderSide(color: Colors.red)),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.primary),
             ),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.lightGray)),
+              borderSide: BorderSide(color: AppColors.lightGray),
+            ),
             contentPadding: EdgeInsets.symmetric(
               horizontal: Sizes.p8,
               vertical: Sizes.p8,
             ),
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+            floatingLabelAlignment: null,
             prefixIcon: Icon(
               Icons.attach_money_outlined,
+              color: AppColors.currencyColor,
             ),
           ),
           inputFormatters: [
-            CurrencyTextInputFormatter.currency(symbol: ''),
+            CurrencyTextInputFormatter.currency(
+              symbol: '',
+              enableNegative: false,
+            ),
           ],
           style: GoogleFonts.rubik(
               color: AppColors.textColor, fontWeight: FontWeight.w500),

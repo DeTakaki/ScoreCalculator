@@ -16,12 +16,10 @@ class BaseLayout extends StatelessWidget {
         statusBarColor: Color(0xFFFFFFFF),
         statusBarIconBrightness: Brightness.dark,
       ),
-      child: SafeArea(
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          backgroundColor: const Color(0xFFFFFFFF),
-          body: child,
-        ),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: const Color(0xFFFFFFFF),
+        body: SafeArea(child: child),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_calculator/src/constants/app_colors.dart';
 import 'package:score_calculator/src/routing/app_router.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Score calculator',
       routerConfig: router,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
         useMaterial3: true,
       ),
       scaffoldMessengerKey: rootScaffoldMessengerKey,
