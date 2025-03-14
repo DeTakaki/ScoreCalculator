@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:score_calculator/src/constants/app_colors.dart';
 import 'package:score_calculator/src/constants/app_images.dart';
 import 'package:score_calculator/src/constants/app_sizes.dart';
-import 'package:score_calculator/src/core/data/user.dart';
+import 'package:score_calculator/src/core/domain/user.dart';
 import 'package:score_calculator/src/core/presentation/providers/user_score_provider.dart';
 import 'package:score_calculator/src/core/presentation/widgets/calculator_text_field.dart';
 import 'package:score_calculator/src/routing/routes_strings.dart';
