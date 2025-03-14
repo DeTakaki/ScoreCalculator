@@ -24,15 +24,18 @@ class _ScoreCalculatorScreenState extends State<ScoreCalculatorScreen> {
         children: [
           const Column(
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Image(
-                      image: AssetImage(AppImages.kalshiLogo),
+              SizedBox(
+                height: 150,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Image(
+                        image: AssetImage(AppImages.kalshiLogo),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
@@ -61,6 +64,7 @@ class _ScoreCalculatorScreenState extends State<ScoreCalculatorScreen> {
                 ),
                 gapH24,
                 const CalculatorCard(),
+                gapH32,
                 const SecurityFooterWidget(),
               ],
             ),

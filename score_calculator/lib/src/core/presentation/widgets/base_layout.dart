@@ -18,6 +18,7 @@ class BaseLayout extends StatelessWidget {
       ),
       child: SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           backgroundColor: const Color(0xFFFFFFFF),
           body: child,
         ),

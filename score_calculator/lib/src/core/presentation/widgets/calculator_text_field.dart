@@ -1,3 +1,4 @@
+import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:score_calculator/src/constants/app_colors.dart';
@@ -30,7 +31,7 @@ class CalculatorTextField extends StatelessWidget {
           controller: textController,
           keyboardType: TextInputType.number,
           decoration: const InputDecoration(
-            hintText: 'Only numbers',
+            hintText: '0,00',
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.primary),
             ),
@@ -44,6 +45,9 @@ class CalculatorTextField extends StatelessWidget {
               Icons.attach_money_outlined,
             ),
           ),
+          inputFormatters: [
+            CurrencyTextInputFormatter.currency(symbol: ''),
+          ],
           style: GoogleFonts.rubik(
               color: AppColors.textColor, fontWeight: FontWeight.w500),
         )
