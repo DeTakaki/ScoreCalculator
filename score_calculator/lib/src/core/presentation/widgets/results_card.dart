@@ -1,4 +1,3 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +6,9 @@ import 'package:score_calculator/src/constants/app_images.dart';
 import 'package:score_calculator/src/constants/app_sizes.dart';
 
 class ResultsCard extends StatefulWidget {
-  const ResultsCard({super.key});
+  const ResultsCard({super.key, required this.results});
+
+  final ({String title, String health, double score}) results;
 
   @override
   State<ResultsCard> createState() => _ResultsCardsState();
@@ -23,7 +24,7 @@ class _ResultsCardsState extends State<ResultsCard>
     animationController = AnimationController(
         vsync: this,
         duration: const Duration(milliseconds: 1300),
-        upperBound: 0.75)
+        upperBound: widget.results.score)
       ..addListener(() {
         setState(() {});
       })
@@ -62,11 +63,17 @@ class _ResultsCardsState extends State<ResultsCard>
                     borderRadius:
                         const BorderRadius.all(Radius.circular(Sizes.p20)),
                     backgroundColor: AppColors.progressbarBackgroundColor,
-                    color: AppColors.primary,
+                    color: switch (widget.results.score) {
+                      0.33 => Colors.red,
+                      0.66 => Colors.yellow,
+                      1 => Colors.green,
+                      _ => Colors.yellow,
+                    },
                   ),
                   gapH16,
                   Text(
-                    'big title!',
+                    widget.results.title,
+                    textAlign: TextAlign.center,
                     style: GoogleFonts.rubik(
                       fontSize: Sizes.p20,
                       fontWeight: FontWeight.w500,
@@ -78,7 +85,7 @@ class _ResultsCardsState extends State<ResultsCard>
                     style: GoogleFonts.workSans(),
                   ),
                   Text(
-                    'something.',
+                    widget.results.health,
                     style: GoogleFonts.workSans(fontWeight: FontWeight.w600),
                   ),
                   gapH16,

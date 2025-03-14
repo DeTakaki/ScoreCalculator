@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:score_calculator/src/constants/app_colors.dart';
 import 'package:score_calculator/src/routing/app_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey =

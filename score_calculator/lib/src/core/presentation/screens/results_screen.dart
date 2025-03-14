@@ -1,17 +1,20 @@
 import 'package:easy_rich_text/easy_rich_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:score_calculator/src/constants/app_colors.dart';
 import 'package:score_calculator/src/constants/app_sizes.dart';
+import 'package:score_calculator/src/core/presentation/providers/user_score_provider.dart';
 import 'package:score_calculator/src/core/presentation/widgets/base_layout.dart';
 import 'package:score_calculator/src/core/presentation/widgets/kalshi_header.dart';
 import 'package:score_calculator/src/core/presentation/widgets/results_card.dart';
 import 'package:score_calculator/src/core/presentation/widgets/security_footer.dart';
 
-class ResultsScreen extends StatelessWidget {
+class ResultsScreen extends ConsumerWidget {
   const ResultsScreen({super.key});
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(userIncomeProvider);
     return BaseLayout(
       child: Column(
         children: [
@@ -43,7 +46,7 @@ class ResultsScreen extends StatelessWidget {
                       ],
                     ),
                     gapH24,
-                    const ResultsCard(),
+                    ResultsCard(results: user.healthStatus()),
                     gapH32,
                     const SecurityFooterWidget(),
                   ],

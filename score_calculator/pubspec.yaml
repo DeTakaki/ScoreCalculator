@@ -22,6 +22,7 @@ dependencies:
   easy_rich_text: ^2.2.0
   google_fonts: ^6.2.1
   currency_text_input_formatter: ^2.2.9
+  flutter_riverpod: ^2.6.1
 
 dev_dependencies:
   flutter_test:

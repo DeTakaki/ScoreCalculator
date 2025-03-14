@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:score_calculator/src/constants/app_colors.dart';
 import 'package:score_calculator/src/constants/app_images.dart';
 import 'package:score_calculator/src/constants/app_sizes.dart';
+import 'package:score_calculator/src/core/data/user.dart';
+import 'package:score_calculator/src/core/presentation/providers/user_score_provider.dart';
 import 'package:score_calculator/src/core/presentation/widgets/calculator_text_field.dart';
 import 'package:score_calculator/src/routing/routes_strings.dart';
 
-class CalculatorCard extends StatefulWidget {
+class CalculatorCard extends ConsumerStatefulWidget {
   const CalculatorCard({super.key});
 
   @override
-  State<CalculatorCard> createState() => _CalculatorCardState();
+  ConsumerState<CalculatorCard> createState() => _CalculatorCardState();
 }
 
-class _CalculatorCardState extends State<CalculatorCard> {
+class _CalculatorCardState extends ConsumerState<CalculatorCard> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController _annualIncomeController = TextEditingController();
   final TextEditingController _monthlyCostsController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    ref.watch(userIncomeProvider);
     return Card(
       color: Colors.white,
       elevation: 3,
@@ -78,6 +82,14 @@ class _CalculatorCardState extends State<CalculatorCard> {
                     child: FilledButton(
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
+                          final convertedAnnualIncome = double.parse(
+                              _annualIncomeController.text.replaceAll(',', ''));
+                          final convertedMonthlyCosts = double.parse(
+                              _monthlyCostsController.text.replaceAll(',', ''));
+                          ref.read(userIncomeProvider.notifier).state = User(
+                            annualIncome: convertedAnnualIncome,
+                            montlyCosts: convertedMonthlyCosts,
+                          );
                           context.goNamed(RoutesStrings.results);
                         }
                       },
