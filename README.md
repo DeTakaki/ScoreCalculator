@@ -1,14 +1,14 @@
 # ScoreCalculator
 
-A financial wellness score calculator based on your income
+A financial wellness score calculator based on your income.
 
 ## Getting started
 
-The project is based on Flutter 3.22.2. Please make sure that your Flutter SDK is updated accordingly
+The project is based on Flutter 3.22.2. Please make sure that your Flutter SDK is updated accordingly.
 
 ### Cloning the project
 
-After cloning the project, make sure to go into `pubspec.yaml` and download all the dependencies, or run `flutter pub get` in yout terminal.
+After cloning the project, make sure to go into `pubspec.yaml` and download all the dependencies, or run `flutter pub get` in your terminal.
 
 ## Basic folder structure
 
@@ -53,7 +53,7 @@ Use the domain folder to store models related to the feature. If there is a comm
 
 ### Presentation
 
-The presentation folder gets split into three sub-folders: `screens`, `widgets`, `providers`. Screens should handle the highest layer of the view, as in literally screens. Then, whenever you need to reuse a widget, said widget must be stored inside the `widgets` folder. This is made to make sure that the app is modularized, and can expand in size while not growing in the same rate in files and folders. 
+The presentation folder gets split into three sub-folders: `Screens`, `Widgets` and `Providers`. Screens should handle the highest layer of the view, as in literally screens. Then, whenever you need to reuse a widget, said widget must be stored inside the `widgets` folder. This is made to make sure that the app is modularized, and can expand in size while not growing in the same rate in files and folders. 
 
 Widgets always follow the convention `foo_kind_of_widget.dart`. Take as example the footer in the project. We named it `security_footer.dart`. So when someone needs to import this footer, it is clear what kind of widget this is.
 
