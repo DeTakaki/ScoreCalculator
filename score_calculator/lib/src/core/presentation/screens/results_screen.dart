@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:score_calculator/src/constants/app_colors.dart';
 import 'package:score_calculator/src/constants/app_sizes.dart';
 import 'package:score_calculator/src/core/presentation/providers/user_score_provider.dart';
-import 'package:score_calculator/src/core/presentation/widgets/base_layout.dart';
+import 'package:score_calculator/src/base/presentation/widgets/base_layout.dart';
 import 'package:score_calculator/src/core/presentation/widgets/kalshi_header.dart';
 import 'package:score_calculator/src/core/presentation/widgets/results_card.dart';
 import 'package:score_calculator/src/core/presentation/widgets/security_footer.dart';
